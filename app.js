@@ -1,4 +1,6 @@
 const AWS = require("aws-sdk");
+const express = require("express");
+const app = express();
 console.log("app is running olgy");
 AWS.config.getCredentials((error) => {
   if (error) {
@@ -7,4 +9,9 @@ AWS.config.getCredentials((error) => {
     console.log("Access key: ", AWS.config.credentials.accessKeyId);
     console.log("Secret access key: ", AWS.config.credentials.secretAccessKey);
   }
+});
+const port = process.env.PORT || 3002;
+
+app.listen(port, () => {
+  console.log("app is listening on port: ", port);
 });

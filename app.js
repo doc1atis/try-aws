@@ -1,6 +1,9 @@
 const AWS = require("aws-sdk");
 const express = require("express");
 const app = express();
+app.get("/", (req, res) => {
+  res.json({ olgy: "i received it" });
+});
 console.log("app is running olgy");
 AWS.config.getCredentials((error) => {
   if (error) {
